@@ -1,10 +1,10 @@
 class Address:
-    def __init__(self, index, citi, street, house, apartment):
+    def __init__(self, index, city, street, house, apartment):
         self.index = index
-        self.city = citi
+        self.city = city
         self.street = street
         self.house = house
-        self.apartment = apartment
+        #self.apartment = apartment
 
 
     
