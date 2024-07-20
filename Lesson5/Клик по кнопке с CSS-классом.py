@@ -11,6 +11,6 @@ for i in range(3):
     alert = driver.switch_to.alert
     alert.accept()
     driver.refresh()
-    
+
 sleep(10)
 driver.quit()
