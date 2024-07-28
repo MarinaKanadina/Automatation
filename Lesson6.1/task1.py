@@ -33,8 +33,9 @@ def test_fill_and_submit_form(driver):
         "Россия")
     driver.find_element(
         By.CSS_SELECTOR, "input[name=job-position]").send_keys("QA")
-    driver.find_element
-    (By.CSS_SELECTOR, "input[name=company]").send_keys("SkyPro")
+    driver.find_element(
+        By.CSS_SELECTOR, "input[name=company]").send_keys("SkyPro"
+    )
 
     # Нажатие кнопки Submit
     submit_button = WebDriverWait(
@@ -54,8 +55,9 @@ def test_fill_and_submit_form(driver):
     assert "alert-danger" in zip_code_field.get_attribute("class")
 
     # Проверка, что остальные поля подсвечены зеленым
-    green_highlighted_fields = driver.find_elements
-    (By.CSS_SELECTOR, "div.alert.py-2.alert-success")
+    green_highlighted_fields = driver.find_elements(
+        By.CSS_SELECTOR, "div.alert.py-2.alert-success"
+        )
     assert len(green_highlighted_fields) == 9
     # Должно быть 9 успешно подсвеченных полей
     # Проверка, что поле Zip code подсвечено красным
@@ -63,8 +65,9 @@ def test_fill_and_submit_form(driver):
     assert "alert-danger" in zip_code_field.get_attribute("class")
 
     # Проверка, что остальные поля подсвечены зеленым
-    green_highlighted_fields = driver.find_elements
-    (By.CSS_SELECTOR, "div.alert.py-2.alert-success")
+    green_highlighted_fields = driver.find_elements(
+        By.CSS_SELECTOR, "div.alert.py-2.alert-success"
+        )
     assert len(green_highlighted_fields) == 9
     # Должно быть 9 успешно подсвеченных полей
 
