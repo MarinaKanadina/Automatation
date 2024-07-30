@@ -12,8 +12,8 @@ def driver():
 
 
 def test_fill_and_submit_form(driver):
-    driver.get
-    ("https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
+    (driver.
+    get("https://bonigarcia.dev/selenium-webdriver-java/data-types.html"))
 
     # Заполнение формы
     driver.find_element(By.CSS_SELECTOR, "input[name=first-name]").send_keys(
