@@ -4,21 +4,6 @@ from sqlalchemy.sql import text
 
 class EmplTable:
     __scripts = {
-        "create": text("""
-            CREATE TABLE IF NOT EXISTS employee (
-                id SERIAL PRIMARY KEY,
-                is_active BOOLEAN DEFAULT TRUE,
-                create_timestamp TIMESTAMP DEFAULT now(),
-                change_timestamp TIMESTAMP DEFAULT now(),
-                first_name VARCHAR(20) NOT NULL,
-                last_name VARCHAR(20) NOT NULL,
-                middle_name VARCHAR(20),
-                phone VARCHAR(15) NOT NULL,
-                email VARCHAR(256),
-                avatar_url VARCHAR(1024),
-                company_id INTEGER NOT NULL
-            )
-        """),
         "select": text("SELECT * FROM employee"),
         "insert": text("""
             INSERT INTO employee (first_name, last_name, phone, company_id)
@@ -80,12 +65,6 @@ class EmplTable:
     def delete_employee(self, employee_id):
         with self.__db.connect() as conn:
             result = conn.execute(self.__scripts["delete"], {"employee_id": employee_id})
-            conn.commit()
-            return result
-
-    def delete_all_employees(self):
-        with self.__db.connect() as conn:
-            result = conn.execute(self.__scripts["delete_all"])
             conn.commit()
             return result
 

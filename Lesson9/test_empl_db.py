@@ -3,7 +3,7 @@ from EmplTable import EmplTable
 import pytest
 
 api = Company("https://x-clients-be.onrender.com")
-db = EmplTable("postgresql+psycopg2://x_clients_db_3fmx_user:mzoTw2Vp4Ox4NQH0XKN3KumdyAYE31uq@dpg-cour99g21fec73bsgvug-a.oregon-postgres.render.com/x_clients_db_3fmx")
+db = EmplTable("postgresql+psycopg2://x_clients_user:95PM5lQE0NfzJWDQmLjbZ45ewrz1fLYa@dpg-cqsr9ulumphs73c2q40g-a.frankfurt-postgres.render.com/x_clients_db_fxd0")
 
 def setup_module(module):
     db.create_table()
@@ -29,6 +29,9 @@ def test_create_and_get_employee():
     employee_list = api.get_list_employee(new_company_id)
     assert any(employee["firstName"] == "Mike" and employee["lastName"] == "Sorreto" for employee in employee_list)
 
+    employee_list = api.post_list_employee(new_company_id)
+    assert any(employee["firstName"] == "Mike" and employee["lastName"] == "Sorreto" for employee in employee_list)
+   
 
 def test_update_employee():
     employees = db.get_employees()

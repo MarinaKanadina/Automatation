@@ -44,8 +44,8 @@ class Company:
             "companyId": new_id,
             "email": "test@test.ru",
             "url": "string",
-            "phone": "89108737214",
-            "birthdate": "2024-10-25T18:54:13.783Z",
+            "phone": "+79108737214",
+            "birthdate": "2024-08-14T15:36:13.783Z",
             "isActive": 'true'
         }
 
