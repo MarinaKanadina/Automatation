@@ -4,6 +4,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 import allure
 driver = webdriver.Chrome()
+movie_name_locator = "span[data-tid='75209b22']"
 
 @allure.title("Поиск фильма по герою")
 @allure.description("Ввод в поисковую строку имени героя, вход на страницу с героем для выбора фильмов с ним")
@@ -12,7 +13,8 @@ def test_hero():
   driver.get("https://www.kinopoisk.ru/")
   driver.find_element(By.NAME, "kp_query").send_keys("шрек")
   driver.find_element(By.ID, "suggest-item-film-430").click()
-  assert driver.find_element(By.CSS_SELECTOR, "span[data-tid='75209b22']").text == "Шрек"
+  assert driver.find_element(By.CSS_SELECTOR, movie_name_locator).text == "Шрек"
+
 
 @allure.title("Поиск фильма по актеру")
 @allure.description("Ввод в поисковую строку имени актера, вход на страницу с актером для выбора фильмов с ним")
@@ -48,4 +50,4 @@ def test_city(chrome):
   driver.get("https://www.kinopoisk.ru/")
   driver.find_element(By.CSS_SELECTOR, "kp_query").send_keys("Москва")
   driver.find_element(By.ID, "suggest-item-film-46708").click()
-  assert chrome.find_element(By.CSS_SELECTOR, "span[data-tid='75209b22']").text == "Москва"
+  assert chrome.find_element(By.CSS_SELECTOR, movie_name_locator).text == "Москва"
